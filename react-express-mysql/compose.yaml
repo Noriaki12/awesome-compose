@@ -49,7 +49,9 @@ services:
       context: frontend
       target: development
     ports:
-      - 3000:3000
+      - 3001:3000
+    environment:
+      - WDS_SOCKET_PORT=3001
     volumes:
       - ./frontend/src:/code/src
       - /code/node_modules
