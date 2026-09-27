@@ -26,6 +26,21 @@ app.get("/", function(req, res, next) {
     .catch(next);
 });
 
+app.get("/products", function(req, res, next) {
+  const name = (req.query.name || "").trim();
+
+  let query = database("products")
+    .select("id", "name", "price_yen");
+
+  if (name) {
+    query = query.where("name", "like", `%${name}%`);
+  }
+
+  query
+    .then((products) => res.json({ products }))
+    .catch(next);
+});
+
 app.get("/healthz", function(req, res) {
   // do app logic here to determine if app is truly healthy
   // you should return 200 if healthy, and anything else will fail
