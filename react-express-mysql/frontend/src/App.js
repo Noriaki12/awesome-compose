@@ -16,7 +16,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>{message || "Loading..."}</p>
         <p>
-          自動更新テストC.
+          自動更新テストD.
         </p>
         <a
           className="App-link"
